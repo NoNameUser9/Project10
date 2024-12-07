@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/CMakeLists.txt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/include/DCT.h" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/include/Deque.h" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/include/LinkedList.h" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/include/Node.h" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/include/Queue.h" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/include/Stack.h" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/include/menu.h" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/include/time_measurement.h" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/DCT.cpp" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/LinkedList.cpp" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main.cpp" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/menu.cpp" charset="windows-1251" />
+  </component>
+</project>
