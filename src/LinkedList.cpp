@@ -1,4 +1,4 @@
-#include <LinkedList.h>
+#include "LinkedList.h"
 
 Node::Node(int value) : data(value), next(nullptr) {}
 
@@ -26,10 +26,10 @@ void LinkedList::remove(int value) {
     while (current != nullptr) {
         if (current->data == value) {
             if (prev == nullptr) {
-                head = current->next; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                head = current->next; // удаление первого элемента
             }
             else {
-                prev->next = current->next; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+                prev->next = current->next; // удаление из середины или конца
             }
             delete current;
             return;
@@ -42,10 +42,10 @@ void LinkedList::remove(int value) {
 void LinkedList::display() const {
     Node* current = head;
     if (current == nullptr) {
-        std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ\n";
+        std::cout << "Связный список пуст\n";
         return;
     }
-    std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: ";
+    std::cout << "Элементы связного списка: ";
     while (current != nullptr) {
         std::cout << current->data << " ";
         current = current->next;

@@ -1,4 +1,4 @@
-#include <Deque.h>
+#include "Deque.h"
 
 Deque::Deque(int size) {
     arr = new int[size];
@@ -27,13 +27,13 @@ void Deque::insertRear(int x) {
 
 int Deque::removeFront() {
     if (isEmpty()) {
-        throw std::out_of_range("пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ");
+        throw std::out_of_range("Дек пуст");
     }
     return arr[front++];
 }
 int Deque::removeRear() {
     if (isEmpty()) {
-        throw std::out_of_range("пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ");
+        throw std::out_of_range("Дек пуст");
     }
     return arr[--rear];
 }
@@ -43,10 +43,10 @@ bool Deque::isEmpty() {
 
 void Deque::display() {
     if (isEmpty()) {
-        std::cout << "пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ\n";
+        std::cout << "Дек пуст\n";
         return;
     }
-    std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ: ";
+    std::cout << "Элементы деки: ";
     for (int i = front; i < rear; i++) {
         std::cout << arr[i] << " ";
     }

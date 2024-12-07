@@ -1,4 +1,4 @@
-#include <Queue.h>
+#include "Queue.h"
 
 Queue::Queue(int size) {
     arr = new int[size];
@@ -24,7 +24,7 @@ void Queue::enqueue(int x) {
 
 int Queue::dequeue() {
     if (isEmpty()) {
-        throw std::out_of_range("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ");
+        throw std::out_of_range("Очередь пуста");
     }
     return arr[front++];
 }
@@ -35,10 +35,10 @@ bool Queue::isEmpty() {
 
 void Queue::display() {
     if (isEmpty()) {
-        std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ\n";
+        std::cout << "Очередь пуста\n";
         return;
     }
-    std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
+    std::cout << "Элементы очереди: ";
     for (int i = front; i < rear; i++) {
         std::cout << arr[i] << " ";
     }

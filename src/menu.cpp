@@ -1,4 +1,4 @@
-#include <menu.h>
+#include "menu.h"
 void populateManually() {
     Stack stack(10);
     Queue queue(10);
@@ -9,14 +9,14 @@ void populateManually() {
 }
 void containerMenu(Stack& stack, Queue& queue, Deque& deque, LinkedList& linkedList, Treap& bst) {
     while (true) {
-        std::cout << "пїЅпїЅпїЅпїЅ:\n";
-        std::cout << "1. пїЅпїЅпїЅпїЅ\n";
-        std::cout << "2. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n";
-        std::cout << "3. пїЅпїЅпїЅ\n";
-        std::cout << "4. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ\n";
-        std::cout << "5  пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ\n";
-        std::cout << "6. пїЅпїЅпїЅпїЅпїЅ\n";
-        std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: ";
+        std::cout << "Меню:\n";
+        std::cout << "1. Стек\n";
+        std::cout << "2. Очередь\n";
+        std::cout << "3. Дек\n";
+        std::cout << "4. Связный список\n";
+        std::cout << "5  Декартово дерево\n";
+        std::cout << "6. Выход\n";
+        std::cout << "Выберите структуру данных: ";
         int chose;
         std::cin >> chose;
 
@@ -38,35 +38,35 @@ void containerMenu(Stack& stack, Queue& queue, Deque& deque, LinkedList& linkedL
         case 6:
             return;
         default:
-            std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ!" << std::endl;
+            std::cout << "Некорректный выбор, попробуйте снова!" << std::endl;
         }
         std::cout << std::endl;
     }
     return;
 }
 
-// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'
+// Реализация функций для работы с адаптерами'
 void stackMenu() {
     Stack stack(2);
     int choice, value;
     while (true) {
-        std::cout << "пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ:\n";
+        std::cout << "Меню стека:\n";
         std::cout << "1. Push\n";
         std::cout << "2. Pop\n";
         std::cout << "3. Top\n";
         std::cout << "4. Display\n";
-        std::cout << "5. пїЅпїЅпїЅпїЅпїЅ\n";
-        std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
+        std::cout << "5. Назад\n";
+        std::cout << "Выберите действие: ";
         std::cin >> choice;
         switch (choice) {
         case 1:
-            std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
+            std::cout << "Введите элемент для добавления: ";
             std::cin >> value;
             stack.push(value);
             break;
         case 2:
             try {
-                std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " << stack.pop() << std::endl;
+                std::cout << "Удаленный элемент: " << stack.pop() << std::endl;
             }
             catch (const std::out_of_range& e) {
                 std::cout << e.what() << std::endl;
@@ -74,7 +74,7 @@ void stackMenu() {
             break;
         case 3:
             try {
-                std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " << stack.topElement() << std::endl;
+                std::cout << "Верхний элемент: " << stack.topElement() << std::endl;
             }
             catch (const std::out_of_range& e) {
                 std::cout << e.what() << std::endl;
@@ -86,7 +86,7 @@ void stackMenu() {
         case 5:
             return;
         default:
-            std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ!" << std::endl;
+            std::cout << "Некорректный выбор, попробуйте снова!" << std::endl;
         }
         std::cout << std::endl;
     }
@@ -95,22 +95,22 @@ void queueMenu() {
     Queue queue(2);
     int choice, value;
     while (true) {
-        std::cout << "пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ:\n";
+        std::cout << "Меню очереди:\n";
         std::cout << "1. Enqueue\n";
         std::cout << "2. Dequeue\n";
         std::cout << "3. Display\n";
-        std::cout << "4. пїЅпїЅпїЅпїЅпїЅ\n";
-        std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
+        std::cout << "4. Назад\n";
+        std::cout << "Выберите действие: ";
         std::cin >> choice;
         switch (choice) {
         case 1:
-            std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
+            std::cout << "Введите элемент для добавления: ";
             std::cin >> value;
             queue.enqueue(value);
             break;
         case 2:
             try {
-                std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " << queue.dequeue() << std::endl;
+                std::cout << "Удаленный элемент: " << queue.dequeue() << std::endl;
             }
             catch (const std::out_of_range& e) {
                 std::cout << e.what() << std::endl;
@@ -122,7 +122,7 @@ void queueMenu() {
         case 4:
             return;
         default:
-            std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ!" << std::endl;
+            std::cout << "Некорректный выбор, попробуйте снова!" << std::endl;
         }
         std::cout << std::endl;
     }
@@ -131,29 +131,29 @@ void dequeMenu() {
     Deque deque(2);
     int choice, value;
     while (true) {
-        std::cout << "пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ:\n";
-        std::cout << "1. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ\n";
-        std::cout << "2. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ\n";
-        std::cout << "3. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ\n";
-        std::cout << "4. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ\n";
+        std::cout << "Меню дека:\n";
+        std::cout << "1. Вставить в начало\n";
+        std::cout << "2. Вставить в конец\n";
+        std::cout << "3. Удалить с начала\n";
+        std::cout << "4. Удалить с конца\n";
         std::cout << "5. Display\n";
-        std::cout << "6. пїЅпїЅпїЅпїЅпїЅ\n";
-        std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
+        std::cout << "6. Назад\n";
+        std::cout << "Выберите действие: ";
         std::cin >> choice;
         switch (choice) {
         case 1:
-            std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: ";
+            std::cout << "Введите элемент для вставки в начало: ";
             std::cin >> value;
             deque.insertRear(value);
             break;
         case 2:
-            std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ: ";
+            std::cout << "Введите элемент для вставки в конец: ";
             std::cin >> value;
             deque.insertRear(value);
             break;
         case 3:
             try {
-                std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " << deque.removeFront() << std::endl;
+                std::cout << "Удаленный элемент: " << deque.removeFront() << std::endl;
             }
             catch (const std::out_of_range& e) {
                 std::cout << e.what() << std::endl;
@@ -161,7 +161,7 @@ void dequeMenu() {
             break;
         case 4:
             try {
-                std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " << deque.removeRear() << std::endl;
+                std::cout << "Удаленный элемент: " << deque.removeRear() << std::endl;
             }
             catch (const std::out_of_range& e) {
                 std::cout << e.what() << std::endl;
@@ -173,7 +173,7 @@ void dequeMenu() {
         case 6:
             return;
         default:
-            std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ!" << std::endl;
+            std::cout << "Некорректный выбор, попробуйте снова!" << std::endl;
         }
         std::cout << std::endl;
     }
@@ -182,21 +182,21 @@ void linkedListMenu() {
     LinkedList linkedList;
     int choice, value;
     while (true) {
-        std::cout << "пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ:\n";
-        std::cout << "1. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n";
-        std::cout << "2. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n";
+        std::cout << "Меню связного списка:\n";
+        std::cout << "1. Вставить\n";
+        std::cout << "2. Удалить\n";
         std::cout << "3. Display\n";
-        std::cout << "4. пїЅпїЅпїЅпїЅпїЅ\n";
-        std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
+        std::cout << "4. Назад\n";
+        std::cout << "Выберите действие: ";
         std::cin >> choice;
         switch (choice) {
         case 1:
-            std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
+            std::cout << "Введите элемент для вставки: ";
             std::cin >> value;
             linkedList.insert(value);
             break;
         case 2:
-            std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
+            std::cout << "Введите элемент для удаления: ";
             std::cin >> value;
             linkedList.remove(value);
             break;
@@ -206,7 +206,7 @@ void linkedListMenu() {
         case 4:
             return;
         default:
-            std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ!" << std::endl;
+            std::cout << "Некорректный выбор, попробуйте снова!" << std::endl;
         }
         std::cout << std::endl;
     }
@@ -215,69 +215,69 @@ void DCTMenu() {
     Treap bst;
     int choice,x, l, r;
     while (true) {
-        std::cout << "пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ:\n";
-        std::cout << "1. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n";
-        std::cout << "2. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n";
-        std::cout << "3. пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ x\n";
-        std::cout << "4. пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ [l,r]\n";
-        std::cout << "5. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n";
-        std::cout << "6. пїЅпїЅпїЅпїЅпїЅ\n";
-        std::cout << "пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ: ";
+        std::cout << "Меню Декартового дерева:\n";
+        std::cout << "1. Добавить число в множество\n";
+        std::cout << "2. Проверить наличие числа в множестве\n";
+        std::cout << "3. Найти первое число, не меньшее x\n";
+        std::cout << "4. Найти количество чисел в диапазоне [l,r]\n";
+        std::cout << "5. Удалить число из множества\n";
+        std::cout << "6. Назад\n";
+        std::cout << "Ваш выбор: ";
         std::cin >> choice;
         switch (choice) {
         case 1:
-            std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
+            std::cout << "Введите число для добавления: ";
             std::cin >> x;
             bst.insert(x);
-            std::cout << x << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n";
+            std::cout << x << " добавлено в множество.\n";
             break;
         case 2:
-            std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
+            std::cout << "Введите число для проверки: ";
             std::cin >> x;
             if (bst.contains(x)) {
-                std::cout << x << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n";
+                std::cout << x << " содержится в множестве.\n";
             }
             else {
-                std::cout << x << " пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n";
+                std::cout << x << " не найдено в множестве.\n";
             }
             break;
         case 3:
-            std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ x пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: ";
+            std::cout << "Введите x для поиска: ";
             std::cin >> x;
             {
                 int lowerBoundValue = bst.lower_bound(x);
                 if (lowerBoundValue != -1) {
-                    std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ " << x << ": " << lowerBoundValue << "\n";
+                    std::cout << "Первое число, не меньшее " << x << ": " << lowerBoundValue << "\n";
                 }
                 else {
-                    std::cout << "пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ " << x << ".\n";
+                    std::cout << "Нет чисел, не меньших " << x << ".\n";
                 }
             }
             break;
         case 4:
-            std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ [l, r]: ";
+            std::cout << "Введите диапазон [l, r]: ";
             std::cin >> l >> r;
             {
                 int count = bst.count_in_range(l, r);
-                std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ [" << l << ", " << r << "]: " << count << "\n";
+                std::cout << "Количество чисел в диапазоне [" << l << ", " << r << "]: " << count << "\n";
             }
             break;
         case 5:
-            std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
+            std::cout << "Введите число для удаления: ";
             std::cin >> x;
             if (bst.contains(x))
             {
                 bst.erase(x);
-                std::cout << x << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n";
+                std::cout << x << " удалено из множества.\n";
             }
             else {
-                std::cout << x << " пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n";
+                std::cout << x << " не найдено в множестве.\n";
             }
             break;
         case 6:
             return;
         default:
-            std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ!" << std::endl;
+            std::cout << "Некорректный выбор, попробуйте снова!" << std::endl;
         }
         std::cout << std::endl;
     }

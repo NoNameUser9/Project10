@@ -1,4 +1,4 @@
-#include <Stack.h>
+#include "Stack.h"
 
 Stack::Stack(int size) {
     arr = new int[size];
@@ -24,14 +24,14 @@ void Stack::push(int x) {
 
 int Stack::pop() {
     if (isEmpty()) {
-        throw std::out_of_range("пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ");
+        throw std::out_of_range("Стек пуст");
     }
     return arr[top--];
 }
 
 int Stack::topElement() {
     if (isEmpty()) {
-        throw std::out_of_range("пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ");
+        throw std::out_of_range("Стек пуст");
     }
     return arr[top];
 }
@@ -42,10 +42,10 @@ bool Stack::isEmpty() {
 
 void Stack::display() {
     if (isEmpty()) {
-        std::cout << "пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ\n";
+        std::cout << "Стек пуст\n";
         return;
     }
-    std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ: ";
+    std::cout << "Элементы стека: ";
     for (int i = 0; i <= top; i++) {
         std::cout << arr[i] << " ";
     }
